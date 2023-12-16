@@ -1,0 +1,147 @@
+body {
+    background-color: #f8f9fa;
+    margin-bottom: 60px; /* 确保底部在页面底部 */
+                display: flex;
+            flex-direction: column;
+}
+
+.container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 30px;
+    min-height: 60vh;
+    margin-bottom: 20px; /* 调整 container 和 bottom-area 之间的距离 */
+    position: relative; /* 设置相对定位，以便底部区域相对于容器定位 */
+}
+
+.user-agreement {
+    max-height: 399px; /* 调整 user-agreement 的最大高度，根据需要调整值 */
+    overflow-y: auto;
+    padding: 10px;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+}
+
+.bottom-area {
+    background-color: #f8f9fa;
+    color: #6c757d;
+    padding: 10px;
+    border-radius: 5px;
+    position: relative; /* 使用相对定位 */
+    margin-top: 20px; /* 调整 container 和 bottom-area 之间的距离 */
+}
+
+/* 其他样式 */
+
+/* 移动端样式 */
+@media (max-width: 768px) {
+    .bottom-area {
+        position: relative; /* 切换到相对定位，确保位于用户协议下方 */
+        margin-top: 0; /* 移除顶部边距 */
+    }
+}
+
+.tab-content {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 60px;
+}
+
+.nav-pills .nav-link {
+  background-color: #007bff;
+  color: #ffffff;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+.nav-pills .nav-link.active {
+  background-color: #0056b3;
+}
+
+.footer {
+  background-color: #f8f9fa;
+  color: #6c757d;
+  padding: 10px;
+  border-radius: 5px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.user-agreement h1 {
+  font-size: 25px; /* 调整h1标题的字体大小 */
+}
+
+.user-agreement h2 {
+  font-size: 20px; /* 调整h2标题的字体大小 */
+}
+
+.user-agreement h3 {
+  font-size: 16px; /* 调整h3标题的字体大小 */
+}
+
+.wrapper {
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.mt-4 {
+  margin-top: 1.5rem !important;
+}
+
+.mb-4 {
+  margin-bottom: 1.5rem !important;
+}
+
+.mt-4 {
+  margin-top: 1.5rem !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.text-muted {
+  color: #6c757d !important;
+}
+
+.fixed-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+        h2 {
+            font-size: 25px;
+        }
+
+        .mb-3 {
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: #ffffff;
+            border-radius: 5px;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        .wrapper-top {
+            flex: 1;
+        }
+
+        .wrapper-bottom {
+            text-align: center;
+            padding: 15px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            background-color: #f8f9fa; /* Optional background color for better visibility */
+        }
