@@ -84,7 +84,7 @@ composer require phpmailer/phpmailer
 
 其他问题请看[文档](https://docs.countapi.cc)
 
-## :alembic: Stacks
+## :alembic: 技术栈
 
 * [PHP](http://php.net) + [Bootstrap](https://getbootstrap.com/)
 
