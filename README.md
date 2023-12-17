@@ -8,6 +8,7 @@
 </h1>
 
 <p align="center">Monitor your website visits at all times</p>
+
 <p align="center">
   <a href="https://www.countapi.cc">官网</a> •
   <a href="https://demo.countapi.cc">演示</a> •
@@ -16,22 +17,18 @@
   <a href="https://t.me/Count_API">Telegram</a> •
   <a href="https://github.com/znc15/Count-API?tab=MIT-1-ov-file">License</a>
 </p>
+
 <p align="center">
   <a href="http://php.net">
-  <img src="https://img.shields.io/badge/PHP->=7.3-orange.svg" alt="GitHub Test Workflow">
-  </a>
+  <img src="https://img.shields.io/badge/PHP->=7.3-orange.svg" alt="GitHub Test Workflow"></a>
   <a href="https://github.com/znc15/Count-API?tab=MIT-1-ov-file">
-  <img src="https://img.shields.io/badge/MIT License-yellowgreen.svg">
-  </a>
+  <img src="https://img.shields.io/badge/MIT License-yellowgreen.svg"></a>
   <a href="https://github.com/znc15/Count-API">
-  <img src="https://img.shields.io/github/languages/code-size/znc15/Count-API?color=blueviolet" />
-  </a>
+  <img src="https://img.shields.io/github/languages/code-size/znc15/Count-API?color=blueviolet" /></a>
   <a href="https://github.com/znc15/Count-API">
-  <img src="https://img.shields.io/github/v/release/znc15/Count-API?include_prereleases&style=flat-square"/>
-  </a>
+  <img src="https://img.shields.io/github/v/release/znc15/Count-API?include_prereleases&style=flat-square"/></a>
   <a href="https://github.com/znc15/Count-API/commits/">
-  <img src="https://img.shields.io/github/last-commit/znc15/Count-API"/>
-  </a>
+  <img src="https://img.shields.io/github/last-commit/znc15/Count-API"/></a>
 </p>
  
 
