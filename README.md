@@ -1,5 +1,6 @@
 <h1 align="center">
   <br>
+  <a href="https://www.countapi.cc" alt="logo"><img src="https://raw.githubusercontent.com/znc15/Count-API/main/image/icon.png" width="150"/>
   </a>
   <br>
   <a href="https://www.countapi.cc" alt="logo"><img src="https://github.com/znc15/Count-API/blob/main/image/Count%20API.png?raw=true" width="150"/>
