@@ -119,10 +119,16 @@ $conn->close();
                                             <?php echo $is_admin ? '管理员' : '普通用户'; ?>
                                         </h5>
                                     </div>
-                                    <a class="dropdown-item" href="../settings"><i
+                                    <a class="dropdown-item" href="../settings/"><i
                                             class="mdi mdi-account-circle m-r-5 text-muted"></i> 个人信息</a>
                                     <a class="dropdown-item" href="../settings/"><i
                                             class="mdi mdi-settings m-r-5 text-muted"></i> 设置</a>
+                                            <?php
+                                            // 根据后端代码获取的$is_admin的值来决定是否显示“后台”和“管理员设置”项目
+                                            if ($is_admin == 1) {
+                                                echo '<a class="dropdown-item" href="../admin/"><i class="mdi mdi-key-variant m-r-5 text-muted"></i> 后台面板</a>';
+                                            }
+                                            ?>
                                 </div>
                             </li>
                         </ul>

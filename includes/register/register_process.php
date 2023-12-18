@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <h4 class="alert-heading">注册成功！</h4>
                         <p>感谢您注册。您现在可以登录您的账户。</p>
                         <hr>
-                        <p class="mb-0">返回<a href="login.php">登录页面</a></p>
+                        <p class="mb-0">返回<a href="../../home/login.php">登录页面</a></p>
                     </div>
                 </div>
                 <!-- 引入 Bootstrap JavaScript -->

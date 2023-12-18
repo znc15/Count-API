@@ -24,7 +24,7 @@ require_once("../config.php");// 替换为实际的 config.php 文件路径
 <body>
     <div class="container">
         <h3 class="mb-4"><?php echo $siteName; ?> - 用户注册</h3>
-        <form action="register_process.php" method="post">
+        <form action="../includes/register/register_process.php" method="post">
 
             <div class="mb-3">
                 <label for="username" class="form-label">用户名</label>
