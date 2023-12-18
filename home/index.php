@@ -11,11 +11,10 @@ if ($conn->connect_error) {
 // 执行查询
 $sql = "SELECT `id`, `username`, `email`, `token`, `qq_number`, `is_admin`, `reg_date` FROM `users` WHERE `token` = ?";
 $stmt = $conn->prepare($sql);
-
+//错误
 if ($stmt === false) {
     die("错误: " . $conn->error);
 }
-
 $stmt->bind_param("s", $token);
 $stmt->execute();
 $stmt->bind_result($id, $username, $email, $token, $qq_number, $is_admin, $reg_date);
@@ -24,11 +23,9 @@ $stmt->fetch();
 $stmt->close();
 $conn->close();
 ?>
-
 <!DOCTYPE html>
 <html lang="zh-CN">
 <html>
-
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
@@ -98,50 +95,9 @@ $conn->close();
         </div>
         <div class="content-page">
             <div class="content">
-                <div class="topbar">
-                    <nav class="navbar-custom">
-                        <ul class="list-inline float-right mb-0">
-                            <li class="list-inline-item dropdown notification-list hide-phone">
-                                <a class="nav-link dropdown-toggle arrow-none waves-effect text-white" href="#">
-                                    Chinese/中文 <img src="../assets/home/assets/images/flags/chinese_flag.jpg" class="ml-2" height="16" alt="" />
-                                </a>
-                            </li>
-                            <li class="list-inline-item dropdown notification-list">
-                                <a class="nav-link dropdown-toggle arrow-none waves-effect nav-user"
-                                    data-toggle="dropdown" href="#" role="button" aria-haspopup="false"
-                                    aria-expanded="false">
-                                    <img src="https://q1.qlogo.cn/g?b=qq&nk=<?php echo $qq_number; ?>&s=100" alt="user"
-                                        class="rounded-circle">
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
-                                    <div class="dropdown-item noti-title">
-                                        <h5>欢迎，
-                                            <?php echo $is_admin ? '管理员' : '普通用户'; ?>
-                                        </h5>
-                                    </div>
-                                    <a class="dropdown-item" href="../settings/"><i
-                                            class="mdi mdi-account-circle m-r-5 text-muted"></i> 个人信息</a>
-                                    <a class="dropdown-item" href="../settings/"><i
-                                            class="mdi mdi-settings m-r-5 text-muted"></i> 设置</a>
-                                            <?php
-                                            // 根据后端代码获取的$is_admin的值来决定是否显示“后台”和“管理员设置”项目
-                                            if ($is_admin == 1) {
-                                                echo '<a class="dropdown-item" href="../admin/"><i class="mdi mdi-key-variant m-r-5 text-muted"></i> 后台面板</a>';
-                                            }
-                                            ?>
-                                </div>
-                            </li>
-                        </ul>
-                        <ul class="list-inline menu-left mb-0">
-                            <li class="float-left">
-                                <button class="button-menu-mobile open-left waves-light waves-effect">
-                                    <i class="mdi mdi-menu"></i>
-                                </button>
-                            </li>
-                        </ul>
-                        <div class="clearfix"></div>
-                    </nav>
-                </div>
+            <?php
+                include_once('../assets/common/nav.php');
+                ?>
                 <div class="page-content-wrapper ">
                     <div class="container-fluid">
                         <div class="row">
@@ -319,10 +275,9 @@ $conn->close();
                 </div>
             </div>
             </div>
-            <footer class="footer">
-                © 2023
-                <?php echo $siteName; ?> | Design by Mannatthemes | Power By TCB Work
-            </footer>
+            <?php
+            include_once('../assets/common/footer.php');
+            ?>
         </div>
     </div>   
     <script src="../assets/home/assets/js/jquery.min.js"></script>
@@ -342,6 +297,7 @@ $conn->close();
     <!-- App js -->
     <!-- Chart JS -->
     <script src="../assets/home/assets/js/app.js"></script>
+    <script src="../assets/home/assets/js/main.js"></script>
     <script>
     // 添加按钮点击事件处理程序
     document.getElementById('deleteTokenBtn').addEventListener('click', function() {
@@ -358,135 +314,7 @@ $conn->close();
         location.reload();
     });
     </script>
-    <script>
-        // 将流量值转换为相应单位的函数
-        function convertTrafficUnits(trafficValue) {
-            if (trafficValue >= 1e12) {
-                return (trafficValue / 1e12).toFixed(2) + ' TB';
-            } else if (trafficValue >= 1e9) {
-                return (trafficValue / 1e9).toFixed(2) + ' GB';
-            } else {
-                return trafficValue.toFixed(2) + ' MB';
-            }
-        }
 
-        // 使用Fetch API异步获取数据
-        fetch('calculate_traffic.php')
-            .then(response => response.json())
-            .then(data => {
-                // 处理totalRequestCount的数据
-                const totalRequestCountElement = document.getElementById('totalRequestCount');
-                totalRequestCountElement.innerText = `${data.totalRequestCount[0].total_request_count}`;
-
-                // 处理totalRequestCountToday的数据
-                const totalRequestCountTodayElement = document.getElementById('totalRequestCountToday');
-                totalRequestCountTodayElement.innerText = `${data.totalRequestCountToday[0].total_request_count_today}`;
-
-                // 处理totalTraffic的数据并进行单位转换
-                const totalTrafficElement = document.getElementById('totalTraffic');
-                const totalTrafficValue = parseFloat(data.totalTraffic[0].total_traffic);
-                totalTrafficElement.innerText = `${convertTrafficUnits(totalTrafficValue)}`;
-
-                // 处理totalTrafficToday的数据并进行单位转换
-                const totalTrafficTodayElement = document.getElementById('totalTrafficToday');
-                const totalTrafficTodayValue = parseFloat(data.totalTrafficToday[0].total_traffic_today);
-                totalTrafficTodayElement.innerText = `${convertTrafficUnits(totalTrafficTodayValue)}`;
-
-                // 处理topDomains的数据并生成表格
-                const topDomainsElement = document.getElementById('topDomains');
-                const topDomainsData = data.topDomains;
-
-                let topDomainsTableHTML = '<table class="table table-hover">';
-                topDomainsTableHTML += '<thead>';
-                topDomainsTableHTML += '<tr>';
-                topDomainsTableHTML += '<th class="border-top-0">域名</th>';
-                topDomainsTableHTML += '<th class="border-top-0">地区</th>';
-                topDomainsTableHTML += '<th class="border-top-0">备注</th>';
-                topDomainsTableHTML += '<th class="border-top-0">总请求量</th>';
-                topDomainsTableHTML += '<th class="border-top-0">总流量</th>';
-                topDomainsTableHTML += '</tr>';
-                topDomainsTableHTML += '</thead>';
-                topDomainsTableHTML += '<tbody>';
-
-                topDomainsData.forEach(domain => {
-                    topDomainsTableHTML += '<tr>';
-                    topDomainsTableHTML += `<td>${domain.domain}</td>`;
-                    topDomainsTableHTML += `<td>${domain.country}</td>`;
-                    topDomainsTableHTML += `<td>${domain.remark}</td>`;
-                    topDomainsTableHTML += `<td>${domain.total_request_count}</td>`;
-                    topDomainsTableHTML += `<td>${convertTrafficUnits(parseFloat(domain.total_traffic))}</td>`;
-                    topDomainsTableHTML += '</tr>';
-                });
-
-                topDomainsTableHTML += '</tbody>';
-                topDomainsTableHTML += '</table>';
-
-                topDomainsElement.innerHTML = topDomainsTableHTML;
-
-                // 处理柱状图
-                const barChartCanvas = document.getElementById('barChart').getContext('2d');
-                const dates = data.weeklyRequestCount.map(entry => entry.visit_date);
-                const requestCounts = data.weeklyRequestCount.map(entry => entry.daily_request_count);
-
-                new Chart(barChartCanvas, {
-                    type: 'bar',
-                    data: {
-                        labels: dates,
-                        datasets: [{
-                            label: '每日请求量',
-                            data: requestCounts,
-                            backgroundColor: "#5b6be8",
-                            borderColor: "#5b6be8",
-                            borderWidth: 1,
-                            hoverBackgroundColor: "#5b6be8",
-                            hoverBorderColor: "#5b6be8",
-                        }]
-                    },
-                    options: {
-                        scales: {
-                            y: {
-                                beginAtZero: true, // 不从 0 开始
-                            }
-                        }
-                    }
-                });
-            })
-            .catch(error => console.error('获取数据时出错：', error));
-    </script>
-    <script>
-        // 获取 cookie 值的函数
-        function getCookie(name) {
-            var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
-            if (match) return match[2];
-        }
-
-        // 在你的代码中使用 getCookie 函数
-        var token = getCookie('token');
-
-        // 检查 token 是否存在
-        if (!token) {
-            // 如果存在，执行相应的操作
-            // 例如，跳转到 home/index.php
-            window.location.href = 'login.php';
-        }
-
-    </script>
-    <script>
-        // 使用异步请求检查 install.lock 文件内容
-        fetch('../install/install.lock')
-            .then(response => response.text())
-            .then(data => {
-                // 判断 install.lock 文件内容是否为 false
-                if (data.trim().toLowerCase() === 'false') {
-                    // 跳转到 index.php
-                    window.location.href = '../install';
-                }
-            })
-            .catch(error => {
-                // 处理错误
-                console.error('Error fetching install.lock:', error);
-            });
-    </script>
 </body>
 
 </html>
