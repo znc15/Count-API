@@ -88,15 +88,14 @@ mysqli_close($db_connection);
                     <ul>
                         <li class="menu-title">主要</li>
                         <li class="active-v">
-                            <a href="../home" class="waves-effect"
-                                style="color: rgb(91, 107, 232); background-color: rgba(91, 107, 232, 0.15);">
+                            <a href="../home" class="waves-effect">
                                 <i class="mdi mdi-airplay"></i>
                                 <span style=" font-weight: 300;"> 首页 </span>
                             </a>
                         </li>
                         <li class="menu-title">设置</li>
                         <li>
-                            <a href="../links/" class="waves-effect"><i class="mdi mdi-link-variant"></i><span> 域名
+                            <a href="../links/" class="waves-effect active-v"><i class="mdi mdi-link-variant"></i><span> 域名
                                 </span></a>
                         </li>
                         <li>
