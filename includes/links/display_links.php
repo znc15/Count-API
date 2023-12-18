@@ -1,5 +1,5 @@
 <?php
-require_once '../config.php';
+require_once '../../config.php';
 
 function connectToDatabase() {
     global $host, $db_username, $db_password, $database, $port;

@@ -1,5 +1,5 @@
 <?php
-require_once '../config.php';
+require_once '../../config.php';
 
 function getLinkInfo($db_connection, $url) {
     $url = mysqli_real_escape_string($db_connection, $url);

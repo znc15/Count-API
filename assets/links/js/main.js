@@ -7,7 +7,7 @@ $(document).ready(function () {
 
   // 使用 jQuery 的 load 方法加载 display_links.php，并传递page参数
   $("#displayLinksContainer").load(
-    "display_links.php?page=" + currentPage,
+    "../includes/links/display_links.php?page=" + currentPage,
     function () {
       // 隐藏加载中的提示
       $("#loadingSpinner").hide();
