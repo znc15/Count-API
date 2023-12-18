@@ -1,0 +1,24 @@
+#toggle-dark-mode {
+  display: none;
+}
+
+.navbar-brand,
+.text-primary,
+.brand-text,
+.splash-head,
+.login-logo,
+.splash-subhead,
+.css-1gfa3ly,
+a,
+h1 {
+  font-family: MiSans !important;
+}
+
+body {
+  font-family: MiSans !important;
+  font-weight: 400;
+}
+
+.display-none {
+  display: none;
+}

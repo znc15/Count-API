@@ -350,8 +350,9 @@ $conn->close();
                     </div>
                 </div>
                 <footer class="footer">
-                    © 2018 Annex by Mannatthemes.
-                </footer>
+                © 2023
+                <?php echo $siteName; ?> | Design by Mannatthemes | Power By TCB Work
+            </footer>
 
             </div>
             <!-- End Right content here -->

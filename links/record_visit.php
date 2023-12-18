@@ -1,6 +1,9 @@
 <?php
+// 设置时区为 UTC+8
+date_default_timezone_set('Asia/Shanghai');
+
 require_once '../config.php';
-require_once '../vendor/geoip2.phar';
+require_once '../vendor/autoload.php';
 
 use GeoIp2\Database\Reader;
 
@@ -47,16 +50,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // 如果没有重复链接，继续执行插入操作
     $urlToken = uniqid();
-    $query = "INSERT INTO urls (url, country, remark, created_at, owner, urltoken) 
+    $query = "INSERT INTO urls (url, country, remark, created_at, owner, urltoken)
             VALUES ('$url', '$region', '$remark', NOW(), '$userToken', '$urlToken')";
     $result = mysqli_query($db_connection, $query);
 
     if ($result) {
         // 生成监测脚本文件（存放在 storage 目录下，请根据实际情况修改）
         $scriptContent = "var urlToken = '$urlToken';\n";
-        $scriptContent .= "// 在这里添加你的监测脚本内容\n";
+        $scriptContent .= "// This is Count API jscript\n";
         $scriptContent .= "\n";
-        $scriptContent .= "// 通知服务器脚本已经被访问\n";
+        $scriptContent .= "// Serve is normal\n";
         $scriptContent .= "var xhr = new XMLHttpRequest();\n";
         $scriptContent .= "xhr.open(\"GET\", \"$siteUrl/links/record_visit.php?token=\" + urlToken, true);\n";
         $scriptContent .= "xhr.send();";
@@ -74,8 +77,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($fileHandle) {
             if (fwrite($fileHandle, $scriptContent) !== false) {
                 fclose($fileHandle);
+                // 记录访问信息
+                recordVisitLog($urlToken);
                 echo json_encode(['success' => true]);
-                exit();
+                return;
             } else {
                 fclose($fileHandle);
                 echo json_encode(['error' => '写入文件失败，请检查目录权限！']);
@@ -85,21 +90,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo json_encode(['error' => '无法打开文件进行写入，请检查目录权限！']);
             exit();
         }
-
-        // 记录访问信息
-        recordVisitLog($urlToken);
     } else {
         echo json_encode(['error' => '数据库插入失败：' . mysqli_error($db_connection)]);
         exit();
     }
 
-    // 关闭数据库连接
-    mysqli_close($db_connection);
-
 } else {
     // 处理访问 JS 文件的请求
     if (isset($_GET['token'])) {
         $token = $_GET['token'];
+
         // 记录 JS 文件访问信息
         recordVisitLog($token);
 
@@ -111,6 +111,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "var xhr = new XMLHttpRequest();\n";
         echo "xhr.open(\"GET\", \"$siteUrl/links/record_visit.php?token=$token\", true);\n";
         echo "xhr.send();";
+
+        // 退出程序
+        exit();
     } else {
         echo json_encode(['error' => '无效的请求']);
         exit();
@@ -129,12 +132,12 @@ function recordVisitLog($urlToken)
     $region = getRegionByIpAddress($ipAddress);
 
     // 获取当前日期
-    $currentDate = date('Y-m-d');
+    $currentDate = date('Y-m-d H:i:s');
 
     // 查询是否已有该 IP 的访问记录
-    $query = "SELECT id, request_count, DATE(visit_time) as visit_date 
-              FROM visitcount 
-              WHERE urltoken = '$urlToken' AND ip = '$ipAddress' 
+    $query = "SELECT id, request_count, DATE(visit_time) as visit_date
+              FROM visitcount
+              WHERE urltoken = '$urlToken' AND ip = '$ipAddress'
               ORDER BY visit_time DESC LIMIT 1";
 
     $result = mysqli_query($db_connection, $query);
@@ -147,7 +150,7 @@ function recordVisitLog($urlToken)
 
             if ($lastVisitDate != $currentDate) {
                 // 如果最后一次访问日期不是今天，创建新的记录
-                $insertQuery = "INSERT INTO visitcount (urltoken, ip, region, visit_time, request_count) 
+                $insertQuery = "INSERT INTO visitcount (urltoken, ip, region, visit_time, request_count)
                                 VALUES ('$urlToken', '$ipAddress', '$region', NOW(), 1)";
                 mysqli_query($db_connection, $insertQuery);
             } else {
@@ -159,7 +162,7 @@ function recordVisitLog($urlToken)
             }
         } else {
             // 如果不存在记录，插入新的记录
-            $insertQuery = "INSERT INTO visitcount (urltoken, ip, region, visit_time, request_count) 
+            $insertQuery = "INSERT INTO visitcount (urltoken, ip, region, visit_time, request_count)
                             VALUES ('$urlToken', '$ipAddress', '$region', NOW(), 1)";
             mysqli_query($db_connection, $insertQuery);
         }
@@ -173,7 +176,7 @@ function recordVisitLog($urlToken)
 function getRegionByIpAddress($ipAddress)
 {
     // 使用 GeoIP2 Phar 文件进行查询
-    $reader = new Reader('../includes/GeoIP2-Country.mmdb');  // 替换为正确的路径
+    $reader = new Reader('../includes/GeoIP2-Country.mmdb'); // 替换为正确的路径
 
     try {
         $record = $reader->country($ipAddress);
@@ -183,4 +186,3 @@ function getRegionByIpAddress($ipAddress)
         return 'Unknown';
     }
 }
-?>

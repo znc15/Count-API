@@ -130,7 +130,7 @@ mysqli_close($db_connection);
                                 </span></a>
                         </li>
                         <li>
-                            <a href="setting.html" class="waves-effect"><i class="mdi mdi-settings"></i><span> 设置
+                            <a href="../settings/" class="waves-effect"><i class="mdi mdi-settings"></i><span> 设置
                                 </span></a>
                         </li>
                         <li class="menu-title">版本</li>
