@@ -62,47 +62,20 @@ mysqli_close($db_connection);
         <?php echo $siteName; ?> - 监测链接管理
     </title>
     <link rel="shortcut icon" href="<?php echo $iconimage; ?>">
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="../assets/home/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="../assets/home/assets/css/icons.css" rel="stylesheet" type="text/css">
+    <link href="../assets/home/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="../assets/home/assets/css/style.css" rel="stylesheet" type="text/css">
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <style>
-        #loadingSpinner {
-            display: none;
-        }
-        .active-v
-        {
-            color: rgb(91, 107, 232) !important; 
-            background-color: rgba(91, 107, 232, 0.15) !important;
-        }
-    </style>
-    <script>
-        $(document).ready(function () {
-            // 显示加载中的提示
-            $('#loadingSpinner').show();
-
-            // 获取当前页面的page参数
-            var currentPage = new URL(window.location.href).searchParams.get("page");
-
-            // 使用 jQuery 的 load 方法加载 display_links.php，并传递page参数
-            $('#displayLinksContainer').load('display_links.php?page=' + currentPage, function () {
-                // 隐藏加载中的提示
-                $('#loadingSpinner').hide();
-            });
-        });
-    </script>
+    <script src="../assets/links/js/main.js"></script>
 </head>
 <body class="fixed-left">
 <div id="preloader"><div id="status"><div class="spinner"></div></div></div>
-    <!-- Begin page -->
     <div id="wrapper">
-        <!-- ========== Left Sidebar Start ========== -->
         <div class="left side-menu">
             <button type="button" class="button-menu-mobile button-menu-mobile-topbar open-left waves-effect">
                 <i class="ion-close"></i>
             </button>
-
-            <!-- LOGO -->
             <div class="topbar-left">
                 <div class="text-center">
                     <a href="../home/" class="logo"><i class="<?php echo $titleimage; ?>"></i>
@@ -143,58 +116,11 @@ mysqli_close($db_connection);
                 <div class="clearfix"></div>
             </div> <!-- end sidebarinner -->
         </div> <!-- Left Sidebar End -->
-        <!-- Start right Content here -->
         <div class="content-page">
-            <!-- Start content -->
             <div class="content">
-                <!-- Top Bar Start -->
-                <div class="topbar">
-                    <nav class="navbar-custom">
-                        <ul class="list-inline float-right mb-0">
-                            <!-- language-->
-                            <li class="list-inline-item dropdown notification-list hide-phone">
-                                <a class="nav-link dropdown-toggle arrow-none waves-effect text-white" href="#">
-                                    Chinese/中文 <img src="assets/images/flags/chinese_flag.jpg" class="ml-2" height="16"
-                                        alt="" />
-                                </a>
-                            </li>
-
-                            <li class="list-inline-item dropdown notification-list">
-                                <a class="nav-link dropdown-toggle arrow-none waves-effect nav-user"
-                                    data-toggle="dropdown" href="#" role="button" aria-haspopup="false"
-                                    aria-expanded="false">
-                                    <img src="https://q1.qlogo.cn/g?b=qq&nk=<?php echo $qq_number; ?>&s=100" alt="user"
-                                        class="rounded-circle">
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
-                                    <!-- item-->
-                                    <div class="dropdown-item noti-title">
-                                        <h5>欢迎，
-                                            <?php echo $is_admin ? '管理员' : '普通用户'; ?>
-                                        </h5>
-                                    </div>
-                                    <a class="dropdown-item" href="#"><i
-                                            class="mdi mdi-account-circle m-r-5 text-muted"></i> 个人信息</a>
-                                    <a class="dropdown-item" href="#"><i class="mdi mdi-settings m-r-5 text-muted"></i>
-                                        设置</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#"><i class="mdi mdi-logout m-r-5 text-muted"></i>
-                                        登出</a>
-                                </div>
-                            </li>
-
-                        </ul>
-                        <ul class="list-inline menu-left mb-0">
-                            <li class="float-left">
-                                <button class="button-menu-mobile open-left waves-light waves-effect">
-                                    <i class="mdi mdi-menu"></i>
-                                </button>
-                            </li>
-                        </ul>
-                        <div class="clearfix"></div>
-                    </nav>
-                </div>
-
+            <?php
+                include_once('../assets/common/nav.php');
+                ?>
                 <div class="page-content-wrapper ">
 
                     <div class="container-fluid">
@@ -236,8 +162,6 @@ mysqli_close($db_connection);
                                 <div>
                                 </div>
                             </div>
-
-                            <!-- 查看链接信息的 Modal -->
                             <div class="modal" tabindex="-1" role="dialog" id="viewLinkModal">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
@@ -253,7 +177,6 @@ mysqli_close($db_connection);
                                             <p><strong>总访问量:</strong> <span id="totalVisitCount"></span></p>
                                             <p><strong>当天访问量:</strong> <span id="todayVisitCount"></span></p>
                                             <p><strong>创建时间（UTC=0）:</strong> <span id="createTime"></span></p>
-
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"
@@ -263,7 +186,6 @@ mysqli_close($db_connection);
                                     </div>
                                 </div>
                             </div>
-                            <!-- 添加监测链接的 Modal -->
                             <div class="modal" tabindex="-1" role="dialog" id="addLinkModal">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
@@ -285,12 +207,9 @@ mysqli_close($db_connection);
                                                     <input type="text" class="form-control" id="remark" name="remark"
                                                         required>
                                                 </div>
-                                                <!-- 在表单中添加下拉选择框 -->
-
                                                 <div class="form-group">
                                                     <label for="region">地区</label>
                                                     <select class="form-control" id="region" name="region">
-                                                        <!-- 这里为空，将通过 Ajax 异步加载 -->
                                                     </select>
                                                 </div>
                                                 <button type="submit" class="btn btn-primary">提交</button>
@@ -299,8 +218,6 @@ mysqli_close($db_connection);
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- 确认删除的 Modal -->
                             <div class="modal" tabindex="-1" role="dialog" id="confirmDeleteModal">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
@@ -322,7 +239,6 @@ mysqli_close($db_connection);
                                     </div>
                                 </div>
                             </div>
-                            <!-- 成功的 Modal -->
                             <div class="modal fade" id="successModal" tabindex="-1" role="dialog"
                                 aria-labelledby="successModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
@@ -343,8 +259,6 @@ mysqli_close($db_connection);
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- 错误的 Modal -->
                             <div class="modal fade" id="errorModal" tabindex="-1" role="dialog"
                                 aria-labelledby="errorModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
@@ -357,7 +271,7 @@ mysqli_close($db_connection);
                                         </div>
                                         <div class="modal-body">
                                             <p>添加失败，请检查输入！</p>
-                                            <p id="errorDetails"></p> <!-- 添加显示详细错误信息的元素 -->
+                                            <p id="errorDetails"></p>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-danger"
@@ -366,32 +280,30 @@ mysqli_close($db_connection);
                                     </div>
                                 </div>
                             </div>
-                        </div><!-- container -->
-                    </div> <!-- Page content Wrapper -->
-                </div> <!-- content -->
-                <footer class="footer">
-                    © 2023
-                    <?php echo $siteName; ?> | Design by Mannatthemes | Power By TCB Work
-                </footer>
+                        </div>
+                    </div>
+                </div>
+                <?php
+                include_once('../assets/common/footer.php');
+                ?>
             </div>
-            <!-- End Right content here -->
         </div>
         </div>
         </div>
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/popper.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/modernizr.min.js"></script>
-        <script src="assets/js/detect.js"></script>
-        <script src="assets/js/fastclick.js"></script>
-        <script src="assets/js/jquery.slimscroll.js"></script>
-        <script src="assets/js/jquery.blockUI.js"></script>
-        <script src="assets/js/waves.js"></script>
-        <script src="assets/js/jquery.nicescroll.js"></script>
-        <script src="assets/js/jquery.scrollTo.min.js"></script>
-        <script src="assets/plugins/skycons/skycons.min.js"></script>
-        <script src="assets/plugins/raphael/raphael-min.js"></script>       
-        <script src="assets/js/app.js"></script>
+        <script src="../assets/home/assets/js/jquery.min.js"></script>
+        <script src="../assets/home/assets/js/popper.min.js"></script>
+        <script src="../assets/home/assets/js/bootstrap.min.js"></script>
+        <script src="../assets/home/assets/js/modernizr.min.js"></script>
+        <script src="../assets/home/assets/js/detect.js"></script>
+        <script src="../assets/home/assets/js/fastclick.js"></script>
+        <script src="../assets/home/assets/js/jquery.slimscroll.js"></script>
+        <script src="../assets/home/assets/js/jquery.blockUI.js"></script>
+        <script src="../assets/home/assets/js/waves.js"></script>
+        <script src="../assets/home/assets/js/jquery.nicescroll.js"></script>
+        <script src="../assets/home/assets/js/jquery.scrollTo.min.js"></script>
+        <script src="../assets/home/assets/plugins/skycons/skycons.min.js"></script>
+        <script src="../assets/home/assets/plugins/raphael/raphael-min.js"></script>       
+        <script src="../assets/home/assets/js/app.js"></script>
         <script async src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script>
         <script>
             $(document).ready(function () {

@@ -1,0 +1,7 @@
+#loadingSpinner {
+  display: none;
+}
+.active-v {
+  color: rgb(91, 107, 232) !important;
+  background-color: rgba(91, 107, 232, 0.15) !important;
+}
