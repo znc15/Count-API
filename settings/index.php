@@ -38,30 +38,23 @@ $conn->close();
     <meta content="<?php echo $siteName; ?> - 个人设置" name="author" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="shortcut icon" href="<?php echo $iconimage; ?>">
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="../assets/home/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="../assets/home/assets/css/icons.css" rel="stylesheet" type="text/css">
+    <link href="../assets/home/assets/css/style.css" rel="stylesheet" type="text/css">
 
 </head>
 
-
 <body class="fixed-left">
-
-    <!-- Loader -->
     <div id="preloader">
         <div id="status">
             <div class="spinner"></div>
         </div>
     </div>
-
-    <!-- Begin page -->
     <div id="wrapper">
         <div class="left side-menu">
             <button type="button" class="button-menu-mobile button-menu-mobile-topbar open-left waves-effect">
                 <i class="ion-close"></i>
             </button>
-
-            <!-- LOGO -->
             <div class="topbar-left">
                 <div class="text-center">
                     <a href="../home/" class="logo"><i class="<?php echo $titleimage; ?>"></i>
@@ -103,48 +96,9 @@ $conn->close();
         </div>
         <div class="content-page">
             <div class="content">
-                <div class="topbar">
-                    <nav class="navbar-custom">
-                        <ul class="list-inline float-right mb-0">
-                            <li class="list-inline-item dropdown notification-list hide-phone">
-                                <a class="nav-link dropdown-toggle arrow-none waves-effect text-white" href="#">
-                                    Chinese/中文 <img src="assets/images/flags/chinese_flag.jpg" class="ml-2" height="16" alt="flag" /></a>
-                            </li>
-                            <li class="list-inline-item dropdown notification-list">
-                                <a class="nav-link dropdown-toggle arrow-none waves-effect nav-user"
-                                    data-toggle="dropdown" href="#" role="button" aria-haspopup="false"
-                                    aria-expanded="false">
-                                    <img src="https://q1.qlogo.cn/g?b=qq&nk=<?php echo $qq_number; ?>&s=100" alt="user"
-                                        class="rounded-circle">
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
-                                    <!-- item-->
-                                    <div class="dropdown-item noti-title">
-                                        <h5>欢迎，
-                                            <?php echo $is_admin ? '管理员' : '普通用户'; ?>
-                                        </h5>
-                                    </div>
-                                    <a class="dropdown-item" href="#"><i
-                                            class="mdi mdi-account-circle m-r-5 text-muted"></i> 个人信息</a>
-                                    <a class="dropdown-item" href="../settings/"><i
-                                            class="mdi mdi-settings m-r-5 text-muted"></i> 设置</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#"><i class="mdi mdi-logout m-r-5 text-muted"></i>
-                                        登出</a>
-                                </div>
-                            </li>
-
-                        </ul>
-                        <ul class="list-inline menu-left mb-0">
-                            <li class="float-left">
-                                <button class="button-menu-mobile open-left waves-light waves-effect">
-                                    <i class="mdi mdi-menu"></i>
-                                </button>
-                            </li>
-                        </ul>
-                        <div class="clearfix"></div>
-                    </nav>
-                </div>
+            <?php
+                include_once('../assets/common/nav.php');
+                ?>
                 <div class="page-content-wrapper ">
                     <div class="container-fluid">
                         <div class="row">
@@ -291,7 +245,7 @@ $conn->close();
                             </div>
                         </div>
                     </div> 
-                </div> <!-- content -->
+                </div>
                 <div class="modal fade" id="resultModal" tabindex="-1" role="dialog" aria-labelledby="resultModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog" role="document">
@@ -351,18 +305,18 @@ $conn->close();
             </div>
         </div>
 
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/popper.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/modernizr.min.js"></script>
-        <script src="assets/js/detect.js"></script>
-        <script src="assets/js/fastclick.js"></script>
-        <script src="assets/js/jquery.slimscroll.js"></script>
-        <script src="assets/js/jquery.blockUI.js"></script>
-        <script src="assets/js/waves.js"></script>
-        <script src="assets/js/jquery.nicescroll.js"></script>
-        <script src="assets/js/jquery.scrollTo.min.js"></script>
-        <script src="assets/js/app.js"></script>
+        <script src="../assets/home/assets/js/jquery.min.js"></script>
+        <script src="../assets/home/assets/js/popper.min.js"></script>
+        <script src="../assets/home/assets/js/bootstrap.min.js"></script>
+        <script src="../assets/home/assets/js/modernizr.min.js"></script>
+        <script src="../assets/home/assets/js/detect.js"></script>
+        <script src="../assets/home/assets/js/fastclick.js"></script>
+        <script src="../assets/home/assets/js/jquery.slimscroll.js"></script>
+        <script src="../assets/home/assets/js/jquery.blockUI.js"></script>
+        <script src="../assets/home/assets/js/waves.js"></script>
+        <script src="../assets/home/assets/js/jquery.nicescroll.js"></script>
+        <script src="../assets/home/assets/js/jquery.scrollTo.min.js"></script>
+        <script src="../assets/home/assets/js/app.js"></script>
         <script src="../assets/settings/js/main.js"></script>
         <script src="../assets/settings/js/updateuserinfo.js"></script>
         <script>
