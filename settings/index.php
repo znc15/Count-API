@@ -99,27 +99,17 @@ $conn->close();
                     </ul>
                 </div>
                 <div class="clearfix"></div>
-            </div> <!-- end sidebarinner -->
+            </div>
         </div>
-        <!-- Left Sidebar End -->
-
-        <!-- Start right Content here -->
-
         <div class="content-page">
-            <!-- Start content -->
             <div class="content">
-
                 <div class="topbar">
                     <nav class="navbar-custom">
                         <ul class="list-inline float-right mb-0">
-                            <!-- language-->
                             <li class="list-inline-item dropdown notification-list hide-phone">
                                 <a class="nav-link dropdown-toggle arrow-none waves-effect text-white" href="#">
-                                    Chinese/中文 <img src="assets/images/flags/chinese_flag.jpg" class="ml-2" height="16"
-                                        alt="" />
-                                </a>
+                                    Chinese/中文 <img src="assets/images/flags/chinese_flag.jpg" class="ml-2" height="16" alt="flag" /></a>
                             </li>
-
                             <li class="list-inline-item dropdown notification-list">
                                 <a class="nav-link dropdown-toggle arrow-none waves-effect nav-user"
                                     data-toggle="dropdown" href="#" role="button" aria-haspopup="false"
@@ -153,16 +143,10 @@ $conn->close();
                             </li>
                         </ul>
                         <div class="clearfix"></div>
-
                     </nav>
-
                 </div>
-                <!-- Top Bar End -->
-
                 <div class="page-content-wrapper ">
-
                     <div class="container-fluid">
-
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="page-title-box">
@@ -178,7 +162,6 @@ $conn->close();
                                 </div>
                             </div>
                         </div>
-                        <!-- end page title end breadcrumb -->
                         <div class="row">
                             <div class="col-md-4 col-xl-2">
                                 <div class="card m-b-30">
@@ -298,7 +281,7 @@ $conn->close();
                                                                     <?php echo $token; ?>
                                                                 </p>
                                                             </div>
-                                                        </div><!-- /.modal-content -->
+                                                        </div>
                                                     </div><!-- /.modal-dialog -->
                                                 </div><!-- /.modal -->
                                             </div>
@@ -306,10 +289,8 @@ $conn->close();
                                     </div>
                                 </div>
                             </div>
-                        </div><!-- container -->
-
-                    </div> <!-- Page content Wrapper -->
-
+                        </div>
+                    </div> 
                 </div> <!-- content -->
                 <div class="modal fade" id="resultModal" tabindex="-1" role="dialog" aria-labelledby="resultModalLabel"
                     aria-hidden="true">
@@ -322,7 +303,6 @@ $conn->close();
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <!-- 这里将显示密码更新的结果消息 -->
                             </div>
                             <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="refreshPage()">关闭</button>
@@ -340,7 +320,6 @@ $conn->close();
                                 </button>
                             </div>
                             <div class="modal-body" id="modalContent">
-                                <!-- 这里显示更新成功或失败的消息 -->
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="refreshPage()">关闭</button>
