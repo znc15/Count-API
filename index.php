@@ -354,7 +354,7 @@ include './config.php'; // 替换为实际的 config.php 文件路径
                         </div>
                         <div class="content mt-2">
                             <h5 class="title text-light">邮箱</h5>
-                            <a href="mailto:znc15@tcbwork.com" class="text-foot">***@*****.**</a>
+                            <a href="mailto:znc15@tcbwork.com" class="text-foot"><?php echo $emailconfig; ?></a>
                         </div>
                     </div>
                 </div><!--end col-->
@@ -366,7 +366,7 @@ include './config.php'; // 替换为实际的 config.php 文件路径
                         </div>
                         <div class="content mt-2">
                             <h5 class="title text-light">联系电话</h5>
-                            <a href="tel:+152534-468-854" class="text-foot">+86 *******</a>
+                            <a href="tel:+152534-468-854" class="text-foot"><?php echo $phoneconfig; ?></a>
                         </div>
                     </div>
                 </div><!--end col-->
@@ -378,7 +378,7 @@ include './config.php'; // 替换为实际的 config.php 文件路径
                         </div>
                         <div class="content mt-2">
                             <h5 class="title text-light">地区</h5>
-                            <a href="https://map.baidu.com/poi/%E5%8F%A4%E4%BA%AD%E6%9D%91/@13171865.128562689,3598937.0456269113,14.46z?uid=2f6c356432036ff5a2046410&ugc_type=3&ugc_ver=1&device_ratio=2&compat=1&pcevaname=pc4.1&newfrom=zhuzhan_webmap&querytype=detailConInfo&da_src=shareurl"
+                            <a href="<?php echo $mapconfig; ?>"
                                 class="video-play-icon text-foot">在百度地图查看</a>
                         </div>
                     </div>
@@ -391,7 +391,7 @@ include './config.php'; // 替换为实际的 config.php 文件路径
                 <div class="row mt-5">
                     <div class="col-lg-4 col-md-12">
                         <a class="logo-footer h4 mouse-down text-light" href="#home">
-                            <img src="https://cdn.img.lgdl.lol/uploads/2022/08/03/62ea13b403ad3.png" height="16" alt="">
+                            <img src="<?php echo $logoimagelight; ?>" height="16" alt="LightImage">
                         </a>
                         <p class="mt-4 text-foot">在我们完全冗余,并且稳定的 <br> 高性能云平台上部署您的服务基础架构，<br>并从其高可靠性、安全性和企业功能集中受益。
                         </p>

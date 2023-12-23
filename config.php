@@ -24,3 +24,6 @@ $smtpProtocol = "ssl";
 $logoimagedark = "https://image.cdn.cn-zj.littlesheep.cc/storages/2023/12/17/657ebb917f7b5.png";
 $logoimagelight = "https://image.cdn.cn-zj.littlesheep.cc/storages/2023/12/17/657ebb40580f0.png";
 
+$mapconfig = "https://baidu.com";
+$phoneconfig = "+86 10000000000";
+$emailconfig = "eamil@email.com";
