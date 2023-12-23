@@ -318,7 +318,7 @@ mysqli_close($db_connection);
         // 添加 Modal 关闭按钮点击事件
         document.getElementById('closeModalBtn').addEventListener('click', function() {
             // 刷新页面
-            location.reload();
+            window.location.href = '../index.php';
         });
         </script>
         <script>

@@ -92,10 +92,9 @@ $conn->close();
                             <a href="../settings/" class="waves-effect"><i class="mdi mdi-settings"></i><span> 设置
                                 </span></a>
                         </li>
-                        <li class="menu-title">版本</li>
+                        <li class="menu-title">账号</li>
                         <li>
-                            <a href="https://github.com" class="waves-effect"> <i
-                                    class="mdi mdi-arrow-up-bold"></i><span> 当前版本：0.1.0-beta </span></a>
+                            <a id="deleteTokenBtn" class="waves-effect"> <i class="mdi mdi-exit-to-app"></i><span> 退出登录 </span></a>
                         </li>
                     </ul>
                 </div>
@@ -349,70 +348,30 @@ $conn->close();
                         </div>
                     </div>
                 </div>
-                <footer class="footer">
-                © 2023
-                <?php echo $siteName; ?> | Design by Mannatthemes | Power By TCB Work
-            </footer>
-
+                <div class="modal fade" id="deleteTokenModal" tabindex="-1" role="dialog" aria-labelledby="deleteTokenModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="deleteTokenModalLabel">注意：</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <h4>已经退出登录！</h4>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeModalBtn">关闭</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!-- End Right content here -->
-
+            <?php
+            include_once('../assets/common/footer.php');
+            ?>
+            </div>
         </div>
-        <!-- 添加一个模态框 -->
 
-        <!-- END wrapper -->
-
-        <script>
-            function changePassword() {
-                $.ajax({
-                    url: 'change_password.php',
-                    method: 'POST',
-                    data: $('#changePasswordForm').serialize(),
-                    dataType: 'json',
-                    success: function (response) {
-                        $('#resultModal .modal-body').html(response.message);
-                        $('#resultModal').modal('show');
-                    },
-                    error: function () {
-                        alert("错误：无法与服务器通信。");
-                    }
-                });
-            }
-            function refreshPage() {
-            location.reload();
-        }
-        </script>
-        <script>
-            function updateUserInfo() {
-                // 获取用户输入的新用户名和新邮箱
-                var newUsername = document.getElementById('newUsername').value;
-                var newEmail = document.getElementById('newEmail').value;
-
-                // 创建一个FormData对象，用于将数据发送到服务器
-                var formData = new FormData();
-                formData.append('newUsername', newUsername);
-                formData.append('newEmail', newEmail);
-
-                // 发送POST请求到update_info.php
-                fetch('update_info.php', {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(response => response.text())
-                .then(data => {
-                    // 使用Bootstrap模态框显示成功或失败消息
-                    var modalContent = document.getElementById('modalContent');
-                    modalContent.innerHTML = data;
-                    $('#myModal').modal('show');
-                })
-                .catch(error => console.error('Error:', error));
-            }
-
-            function refreshPage() {
-                location.reload(true); // 刷新页面
-            }
-        </script>
-        <!-- jQuery  -->
         <script src="assets/js/jquery.min.js"></script>
         <script src="assets/js/popper.min.js"></script>
         <script src="assets/js/bootstrap.min.js"></script>
@@ -424,9 +383,25 @@ $conn->close();
         <script src="assets/js/waves.js"></script>
         <script src="assets/js/jquery.nicescroll.js"></script>
         <script src="assets/js/jquery.scrollTo.min.js"></script>
-
-        <!-- App js -->
         <script src="assets/js/app.js"></script>
+        <script src="../assets/settings/js/main.js"></script>
+        <script src="../assets/settings/js/updateuserinfo.js"></script>
+        <script>
+        // 添加按钮点击事件处理程序
+        document.getElementById('deleteTokenBtn').addEventListener('click', function() {
+            // 设置过期时间为过去的时间，即立即删除 Cookie
+            document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+
+            // 显示 Bootstrap Modal
+            $('#deleteTokenModal').modal('show');
+        });
+
+        // 添加 Modal 关闭按钮点击事件
+        document.getElementById('closeModalBtn').addEventListener('click', function() {
+            // 刷新页面
+            window.location.href = '../index.php';
+        });
+        </script>
 
 </body>
 
