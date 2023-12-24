@@ -41,15 +41,12 @@ include './config.php'; // 替换为实际的 config.php 文件路径
                     <img src="<?php echo $logoimagelight; ?>" class="l-light" height="27" alt="">
                 </a>
             </div>
-
             <div class="buy-button">
                 <a href="home/login.php" class="text-dark h6 mr-3 login">登陆</a>
                 <a href="home/register.php" target="_blank" class="btn btn-primary">立刻注册</a>
-            </div><!--end login button-->
-            <!-- End Logo container-->
+            </div
             <div class="menu-extras">
                 <div class="menu-item">
-                    <!-- Mobile menu toggle-->
                     <a class="navbar-toggle">
                         <div class="lines">
                             <span></span>
@@ -57,29 +54,23 @@ include './config.php'; // 替换为实际的 config.php 文件路径
                             <span></span>
                         </div>
                     </a>
-                    <!-- End mobile menu toggle-->
                 </div>
             </div>
-
             <div id="navigation">
-                <!-- Navigation Menu-->
                 <ul class="navigation-menu nav-light">
                     <li class="buy-button">
                         <a href="/home/#" class="text-dark h6 mr-3 login">主页</a>
                     </li>
-
                     <ul class="navigation-menu nav-light">
                         <li class="buy-button">
                             <a href="/api/" class="text-dark h6 mr-3 login">API 文档</a>
                     </ul>
                     </li>
-
                     <ul class="navigation-menu nav-light">
                         <li class="buy-button">
                             <a href="/qa/" class="text-dark h6 mr-3 login">Q & A</a>
                     </ul>
                     </li>
-
                     <ul class="navigation-menu nav-light">
                         <li class="buy-button">
                             <a href="/contact/" class="text-dark h6 mr-3 login">联系我们</a>

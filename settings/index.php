@@ -236,8 +236,8 @@ $conn->close();
                                                                 </p>
                                                             </div>
                                                         </div>
-                                                    </div><!-- /.modal-dialog -->
-                                                </div><!-- /.modal -->
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -304,7 +304,7 @@ $conn->close();
             ?>
             </div>
         </div>
-
+        <script src="../assets/common/authlogin.js"></script>
         <script src="../assets/home/assets/js/jquery.min.js"></script>
         <script src="../assets/home/assets/js/popper.min.js"></script>
         <script src="../assets/home/assets/js/bootstrap.min.js"></script>

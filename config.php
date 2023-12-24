@@ -27,3 +27,6 @@ $logoimagelight = "https://image.cdn.cn-zj.littlesheep.cc/storages/2023/12/17/65
 $mapconfig = "https://baidu.com";
 $phoneconfig = "+86 10000000000";
 $emailconfig = "eamil@email.com";
+
+// 定时任务 token
+$cronToken = "Qftpag453002218.";

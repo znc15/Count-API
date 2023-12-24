@@ -11,7 +11,7 @@ if (token) {
   // 例如，跳转到 home/index.php
   window.location.href = "../home";
 }
-
+//
 $(document).ready(function () {
   $("form").submit(function (event) {
     // 阻止表单默认提交行为

@@ -279,6 +279,24 @@ mysqli_close($db_connection);
                                     </div>
                                 </div>
                             </div>
+                            <div class="modal fade" id="deleteTokenModal" tabindex="-1" role="dialog" aria-labelledby="deleteTokenModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="deleteTokenModalLabel">注意：</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <h4>已经退出登录！</h4>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeModalBtn">关闭</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -305,6 +323,7 @@ mysqli_close($db_connection);
         <script src="../assets/home/assets/js/app.js"></script>
         <script async src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script>
         <script src="../assets/links/js/count.js"></script>
+        <script src="../assets/common/authlogin.js"></script>
         <script>
         // 添加按钮点击事件处理程序
         document.getElementById('deleteTokenBtn').addEventListener('click', function() {

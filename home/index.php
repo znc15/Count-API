@@ -294,8 +294,6 @@ $conn->close();
     <script src="../assets/home/assets/js/jquery.scrollTo.min.js"></script>
     <script src="../assets/home/assets/plugins/skycons/skycons.min.js"></script>
     <script src="../assets/home/assets/plugins/raphael/raphael-min.js"></script>
-    <!-- App js -->
-    <!-- Chart JS -->
     <script src="../assets/home/assets/js/app.js"></script>
     <script src="../assets/home/assets/js/main.js"></script>
     <script>
