@@ -1,4 +1,12 @@
 <?php
+// 允许所有来源访问，你也可以指定具体的域名
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST');
+header('Access-Control-Allow-Headers: Content-Type');
+
+// 允许发送 cookie
+header('Access-Control-Allow-Credentials: true');
+
 // 设置时区为 UTC+8
 date_default_timezone_set('Asia/Shanghai');
 
@@ -61,14 +69,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $scriptContent .= "\n";
         $scriptContent .= "// Serve is normal\n";
         $scriptContent .= "var xhr = new XMLHttpRequest();\n";
-        $scriptContent .= "xhr.open(\"GET\", \"$siteUrl/includes/links/record_visit.php?token=\" + urlToken, true);\n";
+        $scriptContent .= "xhr.open(\"GET\", \"" . rtrim($siteUrl, '/') . "/includes/links/record_visit.php?token=\" + urlToken, true);\n";
         $scriptContent .= "xhr.send();";
 
-        $scriptFilename = "../storage/monitor_script_$urlToken.js";
+        $scriptFilename = "../../storage/monitor_script_$urlToken.js";
 
         // 确保目录存在，如果不存在则创建
-        if (!is_dir("../storage")) {
-            mkdir("../storage", 0755, true);
+        if (!is_dir("../../storage")) {
+            mkdir("../../storage", 0755, true);
         }
 
         // 写入文件
@@ -105,11 +113,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // 返回 JS 文件内容
         header('Content-Type: application/javascript');
-        echo "// 在这里添加你的监测脚本内容\n";
+        echo "// This is Count API jscript\n";
         echo "\n";
-        echo "// 通知服务器脚本已经被访问\n";
+        echo "// Serve is normal\n";
         echo "var xhr = new XMLHttpRequest();\n";
-        echo "xhr.open(\"GET\", \"$siteUrl/includes/links/record_visit.php?token=$token\", true);\n";
+        echo "xhr.open(\"GET\", \"" . rtrim($siteUrl, '/') . "/includes/links/record_visit.php?token=$token\" + urlToken, true);\n";
         echo "xhr.send();";
 
         // 退出程序

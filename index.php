@@ -386,9 +386,7 @@ include './config.php'; // 替换为实际的 config.php 文件路径
                         </a>
                         <p class="mt-4 text-foot">在我们完全冗余,并且稳定的 <br> 高性能云平台上部署您的服务基础架构，<br>并从其高可靠性、安全性和企业功能集中受益。
                         </p>
-
                     </div>
-
                     <div class="col-lg-8">
                         <div class="row">
                             <div class="col-lg-6 col-md-4 col-12 mt-4 pt-2 mt-lg-0 pt-lg-0">
@@ -425,9 +423,6 @@ include './config.php'; // 替换为实际的 config.php 文件路径
         </div><!--end container-->
     </footer><!--end footer-->
     <a href="#" class="btn btn-icon btn-soft-primary back-to-top"><i data-feather="arrow-up" class="icons"></i></a>
-    <!-- Back to top -->
-
-    <!-- javascript -->
     <script src="../assets/index/js/jquery.min.js"></script>
     <script src="../assets/index/js/bootstrap.bundle.min.js"></script>
     <script src="../assets/index/js/scrollspy.min.js"></script>

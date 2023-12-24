@@ -132,10 +132,10 @@ mysqli_close($db_connection);
                                             <li class="breadcrumb-item"><a href="#">
                                                     <?php echo $siteName; ?>
                                                 </a></li>
-                                            <li class="breadcrumb-item active">控制面板</li>
+                                            <li class="breadcrumb-item active">监测链接</li>
                                         </ol>
                                     </div>
-                                    <h4 class="page-title">控制面板</h4>
+                                    <h4 class="page-title">监测链接</h4>
                                 </div>
                             </div>
                         </div>
