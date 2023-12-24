@@ -222,6 +222,26 @@ $conn->close();
                         include_once '../assets/common/footer.php';
                         ?>
                     </div>
+                    <div class="modal fade" id="deleteTokenModal" tabindex="-1" role="dialog"
+                    aria-labelledby="deleteTokenModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="deleteTokenModalLabel">注意：</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <h4>已经退出登录！</h4>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                                    id="closeModalBtn">关闭</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 </div>
             </div>
         </div>
@@ -240,6 +260,22 @@ $conn->close();
     <script src="../assets/home/assets/js/jquery.scrollTo.min.js"></script>
     <script src="../assets/home/assets/js/app.js"></script>
     <script src="../assets/common/authlogin.js"></script>
+    <script>
+        // 添加按钮点击事件处理程序
+        document.getElementById('deleteTokenBtn').addEventListener('click', function() {
+            // 设置过期时间为过去的时间，即立即删除 Cookie
+            document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+
+            // 显示 Bootstrap Modal
+            $('#deleteTokenModal').modal('show');
+        });
+
+        // 添加 Modal 关闭按钮点击事件
+        document.getElementById('closeModalBtn').addEventListener('click', function() {
+            // 刷新页面
+            window.location.href = '../index.php';
+        });
+    </script>
     <script>
         // 初始页面加载时设置按钮状态
         $(document).ready(function () {

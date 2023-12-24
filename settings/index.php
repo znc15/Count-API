@@ -87,7 +87,8 @@ $conn->close();
                         </li>
                         <li class="menu-title">账号</li>
                         <li>
-                            <a id="deleteTokenBtn" class="waves-effect"> <i class="mdi mdi-exit-to-app"></i><span> 退出登录 </span></a>
+                            <a id="deleteTokenBtn" class="waves-effect"> <i class="mdi mdi-exit-to-app"></i><span> 退出登录
+                                </span></a>
                         </li>
                     </ul>
                 </div>
@@ -96,7 +97,7 @@ $conn->close();
         </div>
         <div class="content-page">
             <div class="content">
-            <?php
+                <?php
                 include_once('../assets/common/nav.php');
                 ?>
                 <div class="page-content-wrapper ">
@@ -177,25 +178,28 @@ $conn->close();
                                 </div>
                             </div>
                             <div class="col-md-12 col-xl-5">
-                            <div class="card bg-white m-b-30">
+                                <div class="card bg-white m-b-30">
                                     <div class="card-body">
                                         <div class="general-label">
-                                                <div class="form-group">
-                                                    <div style="padding-bottom: 15px;">
-                                                        <h3>修改信息</h3>
-                                                    </div>
+                                            <div class="form-group">
+                                                <div style="padding-bottom: 15px;">
+                                                    <h3>修改信息</h3>
                                                 </div>
-                                                <form id="updateForm">
-                                                    <div class="form-group">
-                                                        <label for="newUsername">新用户名</label>
-                                                        <input type="text" class="form-control" id="newUsername" name="newUsername" placeholder="5-15位" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="newEmail">新邮箱</label>
-                                                        <input type="email" class="form-control" id="newEmail" name="newEmail" placeholder="如果不需要修改，重复输入旧邮箱即可" required>
-                                                    </div>
-                                                    <button type="button" class="btn btn-primary" onclick="updateUserInfo()">提交</button>
-                                                </form>
+                                            </div>
+                                            <form id="updateForm">
+                                                <div class="form-group">
+                                                    <label for="newUsername">新用户名</label>
+                                                    <input type="text" class="form-control" id="newUsername"
+                                                        name="newUsername" placeholder="5-15位" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="newEmail">新邮箱</label>
+                                                    <input type="email" class="form-control" id="newEmail"
+                                                        name="newEmail" placeholder="如果不需要修改，重复输入旧邮箱即可" required>
+                                                </div>
+                                                <button type="button" class="btn btn-primary"
+                                                    onclick="updateUserInfo()">提交</button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -244,7 +248,7 @@ $conn->close();
                                 </div>
                             </div>
                         </div>
-                    </div> 
+                    </div>
                 </div>
                 <div class="modal fade" id="resultModal" tabindex="-1" role="dialog" aria-labelledby="resultModalLabel"
                     aria-hidden="true">
@@ -259,12 +263,14 @@ $conn->close();
                             <div class="modal-body">
                             </div>
                             <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="refreshPage()">关闭</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                                    onclick="refreshPage()">关闭</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -276,52 +282,56 @@ $conn->close();
                             <div class="modal-body" id="modalContent">
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="refreshPage()">关闭</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                                    onclick="refreshPage()">关闭</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="modal fade" id="deleteTokenModal" tabindex="-1" role="dialog" aria-labelledby="deleteTokenModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="deleteTokenModalLabel">注意：</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <h4>已经退出登录！</h4>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeModalBtn">关闭</button>
+                <div class="modal fade" id="deleteTokenModal" tabindex="-1" role="dialog"
+                    aria-labelledby="deleteTokenModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="deleteTokenModalLabel">注意：</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <h4>已经退出登录！</h4>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                                    id="closeModalBtn">关闭</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <?php
-            include_once('../assets/common/footer.php');
-            ?>
+                <?php
+                include_once('../assets/common/footer.php');
+                ?>
             </div>
         </div>
-        <script src="../assets/common/authlogin.js"></script>
-        <script src="../assets/home/assets/js/jquery.min.js"></script>
-        <script src="../assets/home/assets/js/popper.min.js"></script>
-        <script src="../assets/home/assets/js/bootstrap.min.js"></script>
-        <script src="../assets/home/assets/js/modernizr.min.js"></script>
-        <script src="../assets/home/assets/js/detect.js"></script>
-        <script src="../assets/home/assets/js/fastclick.js"></script>
-        <script src="../assets/home/assets/js/jquery.slimscroll.js"></script>
-        <script src="../assets/home/assets/js/jquery.blockUI.js"></script>
-        <script src="../assets/home/assets/js/waves.js"></script>
-        <script src="../assets/home/assets/js/jquery.nicescroll.js"></script>
-        <script src="../assets/home/assets/js/jquery.scrollTo.min.js"></script>
-        <script src="../assets/home/assets/js/app.js"></script>
-        <script src="../assets/settings/js/main.js"></script>
-        <script src="../assets/settings/js/updateuserinfo.js"></script>
-        <script>
+    </div>
+    <script src="../assets/common/authlogin.js"></script>
+    <script src="../assets/home/assets/js/jquery.min.js"></script>
+    <script src="../assets/home/assets/js/popper.min.js"></script>
+    <script src="../assets/home/assets/js/bootstrap.min.js"></script>
+    <script src="../assets/home/assets/js/modernizr.min.js"></script>
+    <script src="../assets/home/assets/js/detect.js"></script>
+    <script src="../assets/home/assets/js/fastclick.js"></script>
+    <script src="../assets/home/assets/js/jquery.slimscroll.js"></script>
+    <script src="../assets/home/assets/js/jquery.blockUI.js"></script>
+    <script src="../assets/home/assets/js/waves.js"></script>
+    <script src="../assets/home/assets/js/jquery.nicescroll.js"></script>
+    <script src="../assets/home/assets/js/jquery.scrollTo.min.js"></script>
+    <script src="../assets/home/assets/js/app.js"></script>
+    <script src="../assets/settings/js/main.js"></script>
+    <script src="../assets/settings/js/updateuserinfo.js"></script>
+    <script>
         // 添加按钮点击事件处理程序
-        document.getElementById('deleteTokenBtn').addEventListener('click', function() {
+        document.getElementById('deleteTokenBtn').addEventListener('click', function () {
             // 设置过期时间为过去的时间，即立即删除 Cookie
             document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
 
@@ -330,12 +340,11 @@ $conn->close();
         });
 
         // 添加 Modal 关闭按钮点击事件
-        document.getElementById('closeModalBtn').addEventListener('click', function() {
+        document.getElementById('closeModalBtn').addEventListener('click', function () {
             // 刷新页面
             window.location.href = '../index.php';
         });
-        </script>
-
+    </script>
 </body>
 
 </html>
